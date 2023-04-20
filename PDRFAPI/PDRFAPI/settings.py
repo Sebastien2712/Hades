@@ -82,7 +82,7 @@ WSGI_APPLICATION = "PDRFAPI.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "hadesdb",
+        "NAME": "hadeDB",
         "USER": "postgres",
         "PASSWORD": "12345",
         "HOST": "localhost",

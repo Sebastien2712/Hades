@@ -1,0 +1,5 @@
+django-admin startproject PDRFAPI
+python manage.py runserver
+python manage.py startapp EmployeeApp
+python manage.py makemigrations EmployeeApp
+python manage.py migrate EmployeeApp

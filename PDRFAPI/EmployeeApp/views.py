@@ -36,9 +36,14 @@ def departmentApi(request, id=0):
 @csrf_exempt
 def employeeApi(request, id=0):
     if request.method == 'GET':
-        employees = Employees.objects.all()
-        employees_serializer = EmployeeSerrializer(employees, many=True)
-        return JsonResponse(employees_serializer.data,safe=False)
+        if id != 0:
+            employee = Employees.objects.get(EmployeeId=id)
+            employees_serializer = EmployeeSerrializer(employee)
+            return JsonResponse(employees_serializer.data,safe=False)
+        else:
+            employees = Employees.objects.all()
+            employees_serializer = EmployeeSerrializer(employees, many=True)
+            return JsonResponse(employees_serializer.data,safe=False)
     elif request.method == 'POST':
         employee_data = JSONParser().parse(request)
         employees_serializer = EmployeeSerrializer(data=employee_data)
